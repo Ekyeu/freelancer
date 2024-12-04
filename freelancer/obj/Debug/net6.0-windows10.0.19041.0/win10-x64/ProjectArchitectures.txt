@@ -1,0 +1,1 @@
+C:\Users\konto\source\repos\freelancer\freelancer\freelancer.csproj;x64

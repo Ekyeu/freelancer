@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="freelancer.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20" VerticalOptions="FillAndExpand">
+
+            <Label Text="Planer czasu dla freelancerów" FontSize="28" HorizontalOptions="Center" TextColor="DarkBlue" />
+            <Label Text="Twoje projekty" FontSize="22" TextColor="Black" />
+
+            
+            <CollectionView x:Name="ListaProjektow" HeightRequest="200">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Label Text="{Binding Nazwa}" FontSize="18" />
+                            <Label Text="{Binding Priorytet}" FontSize="14" TextColor="Gray" />
+                            <Button Text="Usuń" Clicked="OnUsunProjektKlikniety" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Entry x:Name="ProjektWejscie" Placeholder="Dodaj nowy projekt" FontSize="18" />
+
+            <Picker x:Name="WybierzPriorytet" Title="Wybierz priorytet">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Niski</x:String>
+                        <x:String>Średni</x:String>
+                        <x:String>Wysoki</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button Text="Dodaj projekt" Clicked="OnDodajProjektKlikniety" />
+
+
+            
+
+            <Label Text="Planowanie czasu (Pomodoro)" FontSize="22" TextColor="Black" />
+            
+            
+            <HorizontalStackLayout Spacing="15">
+                <Label Text="Czas (minuty):" />
+                <Entry x:Name="CzasWejscie" Placeholder="25" Keyboard="Numeric" WidthRequest="50" />
+            </HorizontalStackLayout>
+            
+            
+            <Button Text="Rozpocznij Pomodoro" Clicked="OnRozpocznijPomodoroKlikniety" />
+
+            
+            <Label x:Name="PomodoroLabel" Text="Gotowy do startu!" FontSize="18" HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
